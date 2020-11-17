@@ -1,0 +1,24 @@
+﻿<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <span>
+                <product-version version="{{Version}}" scversion="{{SCVersion}}" scmonitoringversion={{SCMonitoringVersion}}></product-version>
+            </span>
+            <div class="connectivity-status">
+                <div uib-tooltip="ServiceControl URL {{serviceControlUrl}}">
+                    Service Control:
+                    <span class="connected-status" ng-if="isSCConnected && !isSCConnecting">
+                        <div class="fa pa-connection-success"></div> Connected
+                    </span>
+                    <span ng-if="!isSCConnected && !isSCConnecting" class="connection-failed">
+                        <i class="fa pa-connection-failed"></i> Not connected
+                    </span>
+                    <span ng-if="isSCConnecting" class="connection-establishing">
+                        <i class="fa pa-connection-establishing"></i> Connecting
+                    </span>
+                </div>
+                <monitoring-connectivity-status ng-if="isMonitoringEnabled"></monitoring-connectivity-status>
+            </div>
+        </div>
+    </div>
+</footer>
